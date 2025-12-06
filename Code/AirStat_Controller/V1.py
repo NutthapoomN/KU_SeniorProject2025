@@ -87,7 +87,8 @@ model_argmax = AirNetArgMax(model)
 
 example_input = torch.randn(1, 3)
 traced_argmax = torch.jit.trace(model_argmax, example_input)
-traced_argmax.save("V1_Air_Controller_for_Simulink_ArgMax.pt")
+
+traced_argmax.save("V1_Air_Controller_for_Simulink_ArgMax2.pt")
 
 print("✅ Saved ArgMax version: V1_Air_Controller_for_Simulink_ArgMax.pt")
 # ---------- PRINT TEST SCALED + PRINT SCALE VALUES ----------

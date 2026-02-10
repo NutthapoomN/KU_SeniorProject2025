@@ -1,6 +1,6 @@
 clc
 clear
-T = readtable('D:\Senior Project\Excel\20_1_2026.xlsx');
+T = readtable('D:\Senior Project\Data\Excel\20_1_2026.xlsx');
 Time = T{3190:5902,1};
 JuneAir_T_0 = 0:1:2712;
 JuneAir_T_0 = JuneAir_T_0.';
@@ -18,13 +18,13 @@ JuneAir_11_f_gshp_water = T{3190:5902,18};
 JuneAir_12_f_gshp_r32 = T{3190:5902,19};
 JuneAir_13_t_gshp_hex_in_r32 = T{3190:5902,20};
 JuneAir_14_t_gshp_hex_out_r32 = T{3190:5902,21};
-JuneAir_15_t_gshp_compsr_in= T{3190:5902,22};
-JuneAir_16_t_gshp_compsr_out = T{3190:5902,23};
+JuneAir_15_t_gshp_compsr_out= T{3190:5902,22};
+JuneAir_16_t_gshp_compsr_in = T{3190:5902,23};
 JuneAir_17_t_gshp_hex_in_water= T{3190:5902,24};
 JuneAir_18_t_gshp_hex_out_water = T{3190:5902,25};
 JuneAir_19_t_compos_compsr = T{3190:5902,26};
-JuneAir_20_t_gshp_evap_in = T{3190:5902,27};
-JuneAir_21_t_gshp_evap_out = T{3190:5902,28};
+JuneAir_20_t_gshp_evap_out = T{3190:5902,27};
+JuneAir_21_t_gshp_evap_in = T{3190:5902,28};
 JuneAir_22_t_compos_hex_in_water = T{3190:5902,29};
 JuneAir_44_t_gshp_rm = T{3190:5902,51};
 JuneAir_45_t_gshp_amb = T{3190:5902,52};
@@ -47,13 +47,13 @@ save JuneAir_11_f_gshp_water
 save JuneAir_12_f_gshp_r32
 save JuneAir_13_t_gshp_hex_in_r32
 save JuneAir_14_t_gshp_hex_out_r32
-save JuneAir_15_t_gshp_compsr_in
-save JuneAir_16_t_gshp_compsr_out
+save JuneAir_15_t_gshp_compsr_out
+save JuneAir_16_t_gshp_compsr_in
 save JuneAir_17_t_gshp_hex_in_water
 save JuneAir_18_t_gshp_hex_out_water
 save JuneAir_19_t_compos_compsr
-save JuneAir_20_t_gshp_evap_in
-save JuneAir_21_t_gshp_evap_out
+save JuneAir_20_t_gshp_evap_out
+save JuneAir_21_t_gshp_evap_in
 save JuneAir_22_t_compos_hex_in_water
 save JuneAir_44_t_gshp_rm
 save JuneAir_45_t_gshp_amb
@@ -62,22 +62,23 @@ save JuneAir_47_t_gshp_surf
 
 %% Plot 
 figure(1)
-plot(Time,JuneAir_44_t_gshp_rm)
-title("Room Temp")
-legend('JuneAir_44_t_gshp_rm')
-%%  save Excel
+plot(JuneAir_T_0,JuneAir_4_pow_gshp_gshp_ac)
+hold on
+plot(JuneAir_T_0,JuneAir_20_t_gshp_evap_out)
+plot(JuneAir_T_0,JuneAir_21_t_gshp_evap_in)
+plot(JuneAir_T_0,JuneAir_15_t_gshp_compsr_out)
+plot(JuneAir_T_0,JuneAir_14_t_gshp_hex_out_r32)
 
-T = table(JuneAir_T_0,JuneAir_1_Voltage, JuneAir_2_Frequency,...
-    JuneAir_3_pow_gshp_ref_ac,JuneAir_4_pow_gshp_gshp_ac,...
-    JuneAir_5_pow_gshp_ref_cdu_compsr,JuneAir_6_pow_gshp_ref_cdu_fan,...
-    JuneAir_7_pow_gshp_gshp_cdu_fan,JuneAir_8_pow_gshp_gshp_vfd,JuneAir_9_pow_gshp_gshp_cdu_compsr,...
-    JuneAir_10_pow_compos_compsr,JuneAir_11_f_gshp_water,...
-    JuneAir_12_f_gshp_r32,JuneAir_13_t_gshp_hex_in_r32,...
-    JuneAir_14_t_gshp_hex_out_r32,JuneAir_15_t_gshp_compsr_in,...
-    JuneAir_16_t_gshp_compsr_out,JuneAir_17_t_gshp_hex_in_water,...
-    JuneAir_18_t_gshp_hex_out_water,JuneAir_19_t_compos_compsr,...
-    JuneAir_20_t_gshp_evap_in,JuneAir_21_t_gshp_evap_out,...
-    JuneAir_22_t_compos_hex_in_water,JuneAir_44_t_gshp_rm,...
-    JuneAir_45_t_gshp_amb,JuneAir_46_t_gshp_wl,...
-    JuneAir_47_t_gshp_surf);
-writetable(T,'JuneAir.xlsx');
+title("Room Temp")
+legend('JuneAir_4_pow_gshp_gshp_ac','JuneAir 20 t gshp evap out','JuneAir 21 t gshp evap in',...
+    'JuneAirm 15 t gshp compsr out','JuneAir_14_t_gshp_hex_out_r32')
+
+
+
+
+
+
+%%  save Excel
+Table1=table(JuneAir_4_pow_gshp_gshp_ac,JuneAir_20_t_gshp_evap_out,JuneAir_21_t_gshp_evap_in,...
+    JuneAir_15_t_gshp_compsr_out,JuneAir_14_t_gshp_hex_out_r32);
+writetable(Table1,'CalCOP.xlsx');

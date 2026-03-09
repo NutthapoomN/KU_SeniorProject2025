@@ -32,53 +32,36 @@ JuneAir_46_t_gshp_wl = T{3190:5902,53};
 JuneAir_47_t_gshp_surf = T{3190:5902,54};
 
 %% Save
-save JuneAir_T_0
-save JuneAir_1_Voltage
-save JuneAir_2_Frequency
-save JuneAir_3_pow_gshp_ref_ac
-save JuneAir_4_pow_gshp_gshp_ac
-save JuneAir_5_pow_gshp_ref_cdu_compsr
-save JuneAir_6_pow_gshp_ref_cdu_fan
-save JuneAir_7_pow_gshp_gshp_cdu_fan
-save JuneAir_8_pow_gshp_gshp_vfd
-save JuneAir_9_pow_gshp_gshp_cdu_compsr
-save JuneAir_10_pow_compos_compsr
-save JuneAir_11_f_gshp_water
-save JuneAir_12_f_gshp_r32
-save JuneAir_13_t_gshp_hex_in_r32
-save JuneAir_14_t_gshp_hex_out_r32
-save JuneAir_15_t_gshp_compsr_out
-save JuneAir_16_t_gshp_compsr_in
-save JuneAir_17_t_gshp_hex_in_water
-save JuneAir_18_t_gshp_hex_out_water
-save JuneAir_19_t_compos_compsr
-save JuneAir_20_t_gshp_evap_out
-save JuneAir_21_t_gshp_evap_in
-save JuneAir_22_t_compos_hex_in_water
-save JuneAir_44_t_gshp_rm
-save JuneAir_45_t_gshp_amb
-save JuneAir_46_t_gshp_wl
-save JuneAir_47_t_gshp_surf
+
 
 %% Plot 
 figure(1)
-plot(JuneAir_T_0,JuneAir_4_pow_gshp_gshp_ac)
+plot(JuneAir_T_0,JuneAir_20_t_gshp_evap_out,'LineWidth', 2)
 hold on
-plot(JuneAir_T_0,JuneAir_20_t_gshp_evap_out)
-plot(JuneAir_T_0,JuneAir_21_t_gshp_evap_in)
-plot(JuneAir_T_0,JuneAir_15_t_gshp_compsr_out)
-plot(JuneAir_T_0,JuneAir_14_t_gshp_hex_out_r32)
+plot(JuneAir_T_0,JuneAir_21_t_gshp_evap_in,'LineWidth', 2)
+plot(JuneAir_T_0,JuneAir_15_t_gshp_compsr_out,'LineWidth', 2)
+plot(JuneAir_T_0,JuneAir_14_t_gshp_hex_out_r32,'LineWidth', 2)
+title("Lap GSHP Temperature Data 20-1-2026 : degC")
+xlim([0,max(JuneAir_T_0)+10])
+ylabel('Temperature : degC')
+xlabel('Time (s)')
+legend('T Evap out : degC','T Evap in : degC',...
+    'T Compsr out : degC','T Cond : degC')
 
-title("Room Temp")
-legend('JuneAir_4_pow_gshp_gshp_ac','JuneAir 20 t gshp evap out','JuneAir 21 t gshp evap in',...
-    'JuneAirm 15 t gshp compsr out','JuneAir_14_t_gshp_hex_out_r32')
+figure(2)
+plot(JuneAir_T_0,JuneAir_4_pow_gshp_gshp_ac,'LineWidth', 2)
+hold on
+plot(JuneAir_T_0,JuneAir_7_pow_gshp_gshp_cdu_fan,'LineWidth', 2)
+title("Lap GSHP Power Data 20-1-2026 : kW")
+legend('Power Fan Evap&Compsr : kW','Power Fan Cond : kW')
+ylabel('Power : kW')
+xlabel('Time (s)')
+xlim([0,max(JuneAir_T_0)+10])
 
 
 
 
 
 
-%%  save Excel
-Table1=table(JuneAir_4_pow_gshp_gshp_ac,JuneAir_20_t_gshp_evap_out,JuneAir_21_t_gshp_evap_in,...
-    JuneAir_15_t_gshp_compsr_out,JuneAir_14_t_gshp_hex_out_r32);
-writetable(Table1,'CalCOP.xlsx');
+
+

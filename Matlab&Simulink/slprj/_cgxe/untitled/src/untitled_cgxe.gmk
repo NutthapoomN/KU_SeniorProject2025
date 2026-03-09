@@ -8,7 +8,7 @@ LD = $(CC)
  
 MODEL     = untitled
 TARGET      = cgxe
-MODULE_SRCS   = m_hboOEvACJQG1RbnxdXwlKG.c
+MODULE_SRCS   = m_uNdwbbjWC7nl3CbWaYT6tC.c
 MODEL_SRC  = untitled_cgxe.c
 MODEL_REG = untitled_cgxe_registry.c
 MAKEFILE    = untitled_cgxe.gmk

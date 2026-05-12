@@ -302,10 +302,12 @@ for i in row:
 
 x=[]
 y=[]
+sp = 0
 for i in row:
     x.append(i[0])
     y.append(i[8])
 plt.plot(x, y)
+
 
 # ตั้งชื่อแกน
 plt.xlabel("x")
@@ -325,8 +327,7 @@ columns = ['Time', 'Date', 'Hour', 'Minute', 'Second', 'Entry', 'Exit', 'NumberP
 df1 = pd.DataFrame(row, columns=columns)
 
 # ใช้ ExcelWriter เพื่อเขียนหลาย Sheet ลงในไฟล์เดียว
-with pd.ExcelWriter(r'From_Camera2.xlsx') as writer:
+with pd.ExcelWriter(r'Test22-12-2026.xlsx') as writer:
     df1.to_excel(writer, sheet_name='22-12-2025', index=False)
 
-    
 print("สร้างไฟล์ Excel แล้ว")

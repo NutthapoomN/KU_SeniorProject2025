@@ -8,7 +8,7 @@ LD = $(CC)
  
 MODEL     = TES
 TARGET      = cgxe
-MODULE_SRCS   = m_fUi2Nrdrc7NmX51idBWkvB.c
+MODULE_SRCS   = m_fUi2Nrdrc7NmX51idBWkvB.c m_21GpFfqq9bzd0mZtGgq3HD.c
 MODEL_SRC  = TES_cgxe.c
 MODEL_REG = TES_cgxe_registry.c
 MAKEFILE    = TES_cgxe.gmk
